@@ -1,0 +1,72 @@
+
+Step 1 : Transfer iperf testing tool to NON root cell
+ 
+ #scp -r /root/sanket/iperf root@12.220.59.30:/usr/bin/
+
+Step  2 : Execute iperf on Non Root cell as Server
+
+For TCP server 
+ # iperf -s 
+
+For UDP server
+ # iperf -s -u
+
+Step 3 : Execute iperf on Root Cell as client
+
+FOr TCP Client
+ # iperf -c 172.24.0.95 ( replace this ip 172.24.0.95 with non root cell ip)
+
+For UDP Client
+ # iperf -c 172.24.0.95 -u 
+
+
+-------------------------------------------------------------------------------------------------------------------
+
+For More Details
+
+FOr TCP server
+ # iperf -s -p 2000
+
+For TCP Client
+# iperf -c 172.24.0.95 -t 20 -p 2000 -w 40k
+
+
+-t  option used in the above command tells to transfer data for 20 seconds.
+
+-p  will tell the client to connect the port 2000 on the server
+
+-w will specify your desired window size value. As i told before, window size tuning will improve TCP transfer rate to a certain extent.
+
+
+You can also tell the iperf client to show the transfer rate at an interval of 1 second, for the whole 10 second transfer, as shown below with -i option.
+
+
+-i option iperf client to show the transfer rate at an interval of 1 second
+
+# iperf -c 172.24.0.95 -P 1 -i 1
+
+
+Check the throughput report by increasing the number of parallel connections using "iperf".
+
+# iperf -c 172.24.0.95 -P 20 -i 5
+
+-P number of parallel connections
+
+
+---------
+
+UDP server
+
+# iperf -s -u
+
+
+UDP client 
+
+# iperf -c 172.24.0.95 -u -b 100m
+
+ -u options needs to be also used on the client side for specifying UDP traffic.
+ 
+ -b option to specify the bandwidth to use
+
+
+

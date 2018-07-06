@@ -1,0 +1,91 @@
+
+-----------------------------------------------------------------------------------------------------------------------
+Testing One Root One Non Root  cell
+
+
+Step 1. Ope File  /root/.ssh/known_hosts in VI mode and delete entry of IP Address 172.24.0.95 
+
+Step 2. Go To folder /root/sanket/ and Run 1rootcell_and_1NonRoot_test.py file
+	# python 1rootcell_and_1NonRoot_test.py
+
+Step 3. set PASSWORD "spanidea" on nonRoot Cell Console when booting over
+	 login with root
+	 # passwd
+	 # New Password - spanidea
+	 # Retype Password - spanidea
+
+-------------------------------------------------------------------------------------------------------------------------
+Testing VirtualConsole
+
+
+Step 1. Ope File  /root/.ssh/known_hosts in VI mode and delete entry of IP Address 	
+	ip1="192.168.0.51"
+	ip2="196.168.1.91"
+
+
+Step 2. Go To folder /root/sanket/VirtualConsole and Run virtualConsole_Test.py file
+	# python virtualConsole_Test.py
+
+Step 3. set PASSWORD "spanidea" on nonRoot Cell1 and nonRoot Cell2 Console when booting over
+	 login with root
+	 # passwd
+	 # New Password - spanidea
+	 # Retype Password - spanidea
+
+---------------------------------------------------------------------------------------------------------------------------
+Testing VirtualNetwork
+
+Step 1. Ope File  /root/.ssh/known_hosts in VI mode and delete entry of IP Address 	
+	ip1="192.168.0.51"
+	ip2="196.168.1.91"
+
+
+Step 2. Go To folder /root/sanket/VirtualNetwork and Run virtualNetwork_Test.py file
+	# python virtualNetwork_Test.py
+
+Step 3. set PASSWORD "spanidea" on nonRoot Cell1 and nonRoot Cell2 Console when booting over
+	 login with root
+	 # passwd
+	 # New Password - spanidea
+	 # Retype Password - spanidea
+
+---------------------------------------------------------------------------------------------------------------------------
+
+What Testing Do on ROOT CELL and NON ROOT Cell
+
+TOOL - stress-ng for stress testing on Linux systems.
+
+stress-ng – is an updated version of the stress workload generator tool which tests your system for following features:
+
+CPU compute
+drive stress
+I/O syncs
+Pipe I/O
+cache thrashing
+VM stress
+socket stressing
+process creation and termination
+context switching properties
+
+Though these tools are good for examining your system, they should not just be used by any system user.
+
+
+Applied Following Stress on ROOT CELL and NON ROOT CELL
+
+Root CELL
+stress-ng --cpu 10 --io 7 --vm 7 --vm-bytes 256M --timeout 60s
+
+NON ROOT CEll
+stress-ng --cpu 1  --io 1 --vm 1 --vm-bytes 256M --timeout 60s
+
+
+WHAT ABOVE COMMANDS WILL DO ON ROOT CELL AND NON ROOT CELL
+
+To spawn N workers spinning on sqrt() function, use the –cpu N option as follows.
+To spawn N workers spinning on sync() function, use the –io N option as follows.
+To spawn N workers spinning on malloc()/free() functions, use the –vm N option.
+To allocate memory per vm worker, use the –vm-bytes N option.
+Instead of freeing and reallocating memory resources, you can redirty memory by using the –vm-keep option.
+
+
+
